@@ -1,10 +1,12 @@
 CC = gcc
 
-CFLAGS = -Wall -Wextra -I../include
+CFLAGS = -Wall -Wextra -fPIC -I../include
 
-TARGET = ../bin/client_static
+LDFLAGS = -L../lib
 
-LIBRARY = ../lib/libmyutils.a
+TARGET = ../bin/client_dynamic
+
+LIBRARY = ../lib/libmyutils.so
 
 OBJDIR = ../obj
 
@@ -16,11 +18,10 @@ LIB_OBJECTS = $(OBJDIR)/mystrfunctions.o \
 all: $(TARGET)
 
 $(TARGET): $(MAIN_OBJECT) $(LIBRARY)
-	$(CC) $(MAIN_OBJECT) -L../lib -lmyutils -o $(TARGET)
+	$(CC) $(MAIN_OBJECT) $(LDFLAGS) -lmyutils -Wl,-rpath,'$$ORIGIN/../lib' -o $(TARGET)
 
 $(LIBRARY): $(LIB_OBJECTS)
-	ar r $(LIBRARY) $(LIB_OBJECTS)
-	ranlib $(LIBRARY)
+	$(CC) -shared -o $(LIBRARY) $(LIB_OBJECTS)
 
 $(MAIN_OBJECT): main.c ../include/mystrfunctions.h ../include/myfilefunctions.h
 	$(CC) $(CFLAGS) -c main.c -o $(MAIN_OBJECT)
