@@ -1,0 +1,5 @@
+Hello World
+This is an Operating Systems assignment
+Hello Linux
+Makefile is used for building projects
+Operating Systems is interesting
