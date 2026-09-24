@@ -1,0 +1,23 @@
+.TH MYSTRNCPY 3 "September 2026" "BSDSF24M043-OS-A01" "Library Functions"
+.SH NAME
+mystrncpy \- copy a specified number of characters from one string to another
+.SH SYNOPSIS
+.B char *mystrncpy(char *dest, const char *src, size_t n);
+.SH DESCRIPTION
+The
+.B mystrncpy()
+function copies up to
+.I n
+characters from the string pointed to by
+.I src
+to the character array pointed to by
+.I dest.
+If the length of
+.I src
+is less than
+.I n,
+the remaining characters in
+.I dest
+are filled with null characters.
+.SH AUTHOR
+Ahmad Muavia <m.ahmad.mm2466@gmail.com>

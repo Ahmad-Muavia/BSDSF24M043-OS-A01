@@ -1,0 +1,16 @@
+.TH MYSTRCPY 3 "September 2026" "BSDSF24M043-OS-A01" "Library Functions"
+.SH NAME
+mystrcpy \- copy a string to another string
+.SH SYNOPSIS
+.B char *mystrcpy(char *dest, const char *src);
+.SH DESCRIPTION
+The
+.B mystrcpy()
+function copies the string pointed to by
+.I src
+into the character array pointed to by
+.I dest.
+The copying includes the terminating null character.
+The destination must have enough space to store the copied string.
+.SH AUTHOR
+Ahmad Muavia <m.ahmad.mm2466@gmail.com>

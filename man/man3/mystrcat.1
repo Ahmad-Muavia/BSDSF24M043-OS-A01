@@ -1,0 +1,20 @@
+.TH MYSTRCAT 3 "September 2026" "BSDSF24M043-OS-A01" "Library Functions"
+.SH NAME
+mystrcat \- concatenate one string to another
+.SH SYNOPSIS
+.B char *mystrcat(char *dest, const char *src);
+.SH DESCRIPTION
+The
+.B mystrcat()
+function appends the string pointed to by
+.I src
+to the end of the string pointed to by
+.I dest.
+The terminating null character of
+.I dest
+is replaced by the first character of
+.I src,
+and a new terminating null character is added at the end.
+The destination must have enough space for the resulting string.
+.SH AUTHOR
+Ahmad Muavia <m.ahmad.mm2466@gmail.com>
